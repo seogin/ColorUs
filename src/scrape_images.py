@@ -5,31 +5,31 @@ pip install selenium
 """
 
 from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 
 def download_images(image, path, file):
     new_path = path
 
     if file.find("가을딥") > -1:
-        new_path + "fall_dark/"
+        new_path += "fall_dark/"
     elif file.find("가을뮤트") > -1:
-        new_path + "fall_mute/"
+        new_path += "fall_mute/"
     elif file.find("봄라이트") > -1:
-        new_path + "spring_bright/"
+        new_path += "spring_bright/"
     elif file.find("봄브라이트") > -1:
-        new_path + "sprint_light/"
+        new_path += "spring_light/"
     elif file.find("여름라이트") > -1:
-        new_path + "summer_light/"
+        new_path += "summer_light/"
     elif file.find("여름뮤트") > -1:
-        new_path + "summer_mute/"
+        new_path += "summer_mute/"
     elif file.find("겨울브라이트") > -1:
-        new_path + "winter_bright/"
+        new_path += "winter_bright/"
     elif file.find("겨울딥") > -1:
-        new_path + "winter_dark/"
+        new_path += "winter_dark/"
 
     image.screenshot(new_path + file)
 
@@ -87,7 +87,11 @@ def scrape_images(driver, link):
 
 def main():
     url = "https://m.blog.naver.com/danceslowly?categoryNo=9&tab=1"
-    driver = webdriver.Chrome()
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new")
+
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get(url)
 
     # Scroll down after awaiting for elements to load for few seconds to load more elements
@@ -106,20 +110,10 @@ def main():
     for link in post_links:
         if link.get_attribute("innerHTML").find("연예인 퍼스널컬러 모음") > -1:
             source_links.add(link.get_attribute("href"))
-            print(link.get_attribute("innerHTML"))
 
-    print(source_links)
-    print(len(source_links))
-    scrape_images(driver, source_links.pop())
-
-    # for href in source_links:
-    #     scrape_images(driver, href)
+    for href in source_links:
+        scrape_images(driver, href)
 
 
 if __name__ == "__main__":
-    # main()
-    driver = webdriver.Chrome()
-    scrape_images(
-        driver,
-        "https://m.blog.naver.com/PostView.naver?blogId=danceslowly&logNo=222368403262&navType=by",
-    )
+    main()
