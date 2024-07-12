@@ -16,14 +16,32 @@ class DetectFace:
         self.left_eye = []
         self.right_cheek = []
         self.left_cheek = []
+        self.mouth = []
+        self.nose = []
+        self.jaw = []
 
         self.detect_face_part()
 
 
+    def get_face_parts(self):
+        return (self.right_eyebrow, 
+                self.left_eyebrow, 
+                self.right_eye, 
+                self.left_eye, 
+                self.right_cheek, 
+                self.left_cheek, 
+                self.mouth, 
+                self.nose, 
+                self.jaw)
+
     def detect_face_part(self):
         face_parts = [[],[],[],[],[],[],[],[]]
         # detect faces in the grayscale image
-        rect = self.detector(cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY), 1)[0]
+        try:
+            rect = self.detector(cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY), 1)[0]
+        except IndexError:
+            print("No face detected")
+            return
         
         shape = self.predictor(cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY), rect)
         shape = face_utils.shape_to_np(shape)
