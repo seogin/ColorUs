@@ -49,7 +49,6 @@ class DetectFace:
         idx = 0
         # loop over the face parts individually
         for (_, (i, j)) in face_utils.FACIAL_LANDMARKS_IDXS.items():
-            print(idx)
             face_parts[idx] = shape[i:j]
             idx += 1
         # face_parts = face_parts[1:5]

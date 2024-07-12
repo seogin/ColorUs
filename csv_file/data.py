@@ -1,11 +1,12 @@
 import cv2
 import csv
 import numpy as np
-from ..personal_color.detect_face import DetectFace
-from ..personal_color.color_extract import DominantColors
-from os import walk
 from sklearn.cluster import KMeans
 from sklearn import svm
+from os import walk
+from detect_face import DetectFace
+from color_extract import DominantColors
+
 
 def get_data():
     
@@ -44,6 +45,7 @@ def get_data():
                         colors, hist = colors.getHistogram()
                         color_number.extend(hist)
                 if len(color_number) > 0:
+                    print(len(color_number))
                     color_number.append(file)
                     writer.writerow(color_number)
 
