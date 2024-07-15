@@ -44,7 +44,12 @@ class DominantColors:
         # Blue mask 제거
         fil = [colors[i][2] < 250 and colors[i][0] > 10 for i in range(self.CLUSTERS)]
         colors = list(compress(colors, fil))
+        for i in range(len(colors)):
+            colors[i] = int(self.rgb_to_hex(colors[i]), 16)
         return colors, hist
+    
+    def rgb_to_hex(self, rgb):
+        return '%02x%02x%02x' % (int(rgb[0]), int(rgb[1]), int(rgb[2]))
 
     def plotHistogram(self):
         colors, hist = self.getHistogram()
@@ -69,7 +74,7 @@ class DominantColors:
         return colors
     
 def main():
-    DominantColors(cv2.imread("../src/fall_dark/shin.jpeg")).plotHistogram()
+    DominantColors(cv2.imread("../src/fall_dark/shin.jpeg")).getHistogram()
 
 if __name__ == "__main__":
     main()

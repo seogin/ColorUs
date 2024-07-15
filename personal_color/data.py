@@ -7,7 +7,6 @@ from os import walk
 from detect_face import DetectFace
 from color_extract import DominantColors
 
-
 def get_data():
     
     files = []
@@ -42,8 +41,10 @@ def get_data():
                     if len(part) > 0:
                         colors = DominantColors(part)
                         # colors.plotHistogram()
-                        colors, hist = colors.getHistogram()
-                        color_number.extend(hist)
+                        color, hist = colors.getHistogram()
+                        while len(color) < 3:
+                            color.append(0)
+                        color_number.extend(color)
                 if len(color_number) > 0:
                     print(len(color_number))
                     color_number.append(file)
