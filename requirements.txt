@@ -2,3 +2,4 @@ dlib
 opencv-python
 imutils
 scikit-learn
+pandas
