@@ -17,7 +17,7 @@ class DominantColors:
         self.IMAGE = img.reshape((img.shape[0] * img.shape[1], 3))
 
         #using k-means to cluster pixels
-        kmeans = KMeans(n_clusters = self.CLUSTERS)
+        kmeans = KMeans(n_clusters = self.CLUSTERS, max_iter=500, tol=1e-10)
         kmeans.fit(self.IMAGE)
 
         #the cluster centers are our dominant colors.
