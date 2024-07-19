@@ -42,11 +42,11 @@ def get_data():
                         colors = DominantColors(part)
                         # colors.plotHistogram()
                         color, hist = colors.getHistogram()
-                        # while len(color) < 1:
-                            # color.append([-1,-1,-1])
-                        if len(color) == 0:
-                            color_number = []
-                            break
+                        while len(color) < 1:
+                            color.append([-1,-1,-1])
+                        # if len(color) == 0:
+                        #     color_number = []
+                        #     break
                         color_number.extend(color[0])
                         # print(color)
                 if len(color_number) > 0:

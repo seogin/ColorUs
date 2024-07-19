@@ -20,7 +20,7 @@ def load_and_preprocess_data(path):
     data = data.dropna()
 
     # x = data.drop("label", axis=1)
-    x = data.drop(["label", "jaw_1_red", "jaw_1_green" , "jaw_1_red"], axis=1)
+    x = data.drop(["label"], axis=1)
     y = data["label"]
 
     # Normalize features
