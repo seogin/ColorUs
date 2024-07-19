@@ -11,7 +11,7 @@ from sklearn.decomposition import PCA
 from scipy.stats import uniform
 
 # Path to your data file
-data_path = "./csv_file/data.csv"
+data_path = "./csv_file/data_hist.csv"
 
 
 def load_and_preprocess_data(path):
@@ -84,7 +84,7 @@ def main():
 
     # Use only 50% of the dataset for initial hyperparameter tuning
     x_small, x_test, y_small, y_test = train_test_split(
-        x, y, test_size=0.2, random_state=42
+        x, y, test_size=0.1, random_state=42
     )
 
     # Use fewer cross-validation splits

@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 
 # Path to your data file
-data_path = "./csv_file/data.csv"
+data_path = "./csv_file/data_hist.csv"
 
 
 def load_and_preprocess_data(path):
