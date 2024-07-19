@@ -125,7 +125,7 @@ def classify_personal_color(image_path):
         outputs = model.get_image_features(image)
     
     _, predicted = torch.max(outputs, 1)
-    categories = ['fall_dark', 'fall_mute', 'spring_bright', 'spring_light', 'summer_light', 'summer_mute', 'winter_bright', 'winter_dark']
+    categories = ['fall', 'spring', 'summer', 'winter']
     return categories[predicted.item()]
 
 # Example usage
