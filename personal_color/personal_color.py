@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 
 # Path to your data file
-data_path = "./csv_file/data.csv"
+data_path = "../csv_file/data.csv"
 
 
 def load_and_preprocess_data(path):
@@ -39,7 +39,7 @@ def knn_model():
     y = data["label"]
 
     x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.1, random_state=42
+        x, y, test_size=0.3, random_state=42
     )
 
     model = KNeighborsClassifier(n_neighbors=27)
@@ -96,4 +96,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    knn_model()

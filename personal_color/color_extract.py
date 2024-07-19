@@ -11,13 +11,13 @@ class DominantColors:
     COLORS = None
     LABELS = None
 
-    def __init__(self, image, clusters=3):
+    def __init__(self, image, clusters=1):
         self.CLUSTERS = clusters
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         self.IMAGE = img.reshape((img.shape[0] * img.shape[1], 3))
 
         #using k-means to cluster pixels
-        kmeans = KMeans(n_clusters = self.CLUSTERS, max_iter=500, tol=1e-10)
+        kmeans = KMeans(n_clusters = self.CLUSTERS)
         kmeans.fit(self.IMAGE)
 
         #the cluster centers are our dominant colors.
@@ -44,12 +44,10 @@ class DominantColors:
         # Blue mask 제거
         fil = [colors[i][2] < 250 and colors[i][0] > 10 for i in range(self.CLUSTERS)]
         colors = list(compress(colors, fil))
-        for i in range(len(colors)):
-            colors[i] = int(self.rgb_to_hex(colors[i]), 16)
+        # for i in range(len(colors)):
+        #     colors[i] = int(self.rgb_to_hex(colors[i]), 16)
         return colors, hist
     
-    def rgb_to_hex(self, rgb):
-        return '%02x%02x%02x' % (int(rgb[0]), int(rgb[1]), int(rgb[2]))
 
     def plotHistogram(self):
         colors, hist = self.getHistogram()
@@ -74,7 +72,7 @@ class DominantColors:
         return colors
     
 def main():
-    DominantColors(cv2.imread("../src/fall_dark/shin.jpeg")).getHistogram()
+    DominantColors(cv2.imread("../src/fall_dark/shin.jpeg")).plotHistogram()
 
 if __name__ == "__main__":
     main()

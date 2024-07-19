@@ -18,15 +18,15 @@ def get_data():
     # create csv file
     with open("data.csv", "w", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(["right_eyebrow_1", "right_eyebrow_2", "right_eyebrow_3",
-                         "left_eyebrow_1", "left_eyebrow_2", "left_eyebrow_3",
-                         "right_eye_1", "right_eye_2", "right_eye_3",
-                         "left_eye_1", "left_eye_2", "left_eye_3",
-                         "right_cheek_1", "right_cheek_2", "right_cheek_3",
-                         "left_cheek_1", "left_cheek_2", "left_cheek_3",
-                         "mouth_1", "mouth_2", "mouth_3",
-                         "nose_1", "nose_2", "nose_3",
-                         "jaw_1", "jaw_2", "jaw_3", "label"])
+        writer.writerow(["right_eyebrow_1_red", "right_eyebrow_1_green", "right_eyebrow_1_blue",
+                         "left_eyebrow_1_red", "left_eyebrow_1_green", "left_eyebrow_1_blue",
+                         "right_eye_1_red", "right_eye_1_green", "right_eye_1_blue",
+                         "left_eye_1_red", "left_eye_1_green", "left_eye_1_blue",
+                         "right_cheek_1_red", "right_cheek_1_green", "right_cheek_1_blue",
+                         "left_cheek_1_red", "left_cheek_1_green", "left_cheek_1_blue",
+                         "mouth_1_red", "mouth_1_green", "mouth_1_blue",
+                         "nose_1_red", "nose_1_green", "nose_1_blue",
+                         "jaw_1_red", "jaw_1_green", "jaw_1_red", "label"])
 
         for file in files:
             images = []
@@ -42,9 +42,13 @@ def get_data():
                         colors = DominantColors(part)
                         # colors.plotHistogram()
                         color, hist = colors.getHistogram()
-                        while len(color) < 3:
-                            color.append(0)
-                        color_number.extend(color)
+                        # while len(color) < 1:
+                        #     # color.append([-1,-1,-1])
+                        if len(color) == 0:
+                            color_number = []
+                            break
+                        color_number.extend(color[0])
+                        # print(color)
                 if len(color_number) > 0:
                     print(len(color_number))
                     color_number.append(file)
