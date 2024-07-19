@@ -25,16 +25,16 @@ def get_data():
                          "right_cheek_1_red", "right_cheek_1_green", "right_cheek_1_blue",
                          "left_cheek_1_red", "left_cheek_1_green", "left_cheek_1_blue",
                          "mouth_1_red", "mouth_1_green", "mouth_1_blue",
-                         "nose_1_red", "nose_1_green", "nose_1_blue",
-                         "jaw_1_red", "jaw_1_green", "jaw_1_red", "label"])
+                         "nose_1_red", "nose_1_green", "nose_1_blue", "label"])
 
         for file in files:
             images = []
             for (dirpath, dirname, filenames) in walk(f"../src/{file}"):
                 images.extend(filenames)
                 break
-            # print(images)
             for image in images:
+                if image == ".DS_Store":
+                    continue
                 parts = DetectFace((f"../src/{file}/{image}")).get_face_parts()
                 color_number = []
                 for part in parts:
@@ -43,7 +43,7 @@ def get_data():
                         # colors.plotHistogram()
                         color, hist = colors.getHistogram()
                         # while len(color) < 1:
-                        #     # color.append([-1,-1,-1])
+                            # color.append([-1,-1,-1])
                         if len(color) == 0:
                             color_number = []
                             break

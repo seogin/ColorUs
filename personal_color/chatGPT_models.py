@@ -19,7 +19,8 @@ def load_and_preprocess_data(path):
     # Handle missing values if any
     data = data.dropna()
 
-    x = data.drop("label", axis=1)
+    # x = data.drop("label", axis=1)
+    x = data.drop(["label", "jaw_1_red", "jaw_1_green" , "jaw_1_red"], axis=1)
     y = data["label"]
 
     # Normalize features
@@ -84,7 +85,7 @@ def main():
 
     # Use only 50% of the dataset for initial hyperparameter tuning
     x_small, x_test, y_small, y_test = train_test_split(
-        x, y, test_size=0.1, random_state=42
+        x, y, test_size=0.2, random_state=42
     )
 
     # Use fewer cross-validation splits

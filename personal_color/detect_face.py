@@ -31,8 +31,7 @@ class DetectFace:
                 self.right_cheek, 
                 self.left_cheek, 
                 self.mouth, 
-                self.nose, 
-                self.jaw)
+                self.nose)
 
     def detect_face_part(self):
         face_parts = [[],[],[],[],[],[],[],[]]
@@ -61,7 +60,7 @@ class DetectFace:
         self.right_eye = self.extract_face_part(face_parts[4])
         self.left_eye = self.extract_face_part(face_parts[5])
         self.nose = self.extract_face_part(face_parts[6])
-        self.jaw = self.extract_face_part(face_parts[7])
+        # self.jaw = self.extract_face_part(face_parts[7])
         # Cheeks are detected by relative position to the face landmarks
         self.left_cheek = self.img[shape[29][1]:shape[33][1], shape[4][0]:shape[48][0]]
         self.right_cheek = self.img[shape[29][1]:shape[33][1], shape[54][0]:shape[12][0]]
@@ -84,7 +83,7 @@ class DetectFace:
         return crop
 
 def main():
-    DetectFace("../src/fall_dark/shin.jpeg")
+    DetectFace("../src/fall_dark/현아.webp")
 
 if __name__ == "__main__":
     main()
