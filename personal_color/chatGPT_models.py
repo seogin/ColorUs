@@ -11,7 +11,7 @@ from sklearn.decomposition import PCA
 from scipy.stats import uniform
 
 # Path to your data file
-data_path = "../csv_file/data.csv"
+data_path = "csv_file/data.csv"
 
 
 def load_and_preprocess_data(path):
@@ -24,7 +24,11 @@ def load_and_preprocess_data(path):
     y = data["label"]
 
     # Normalize features
-    x = preprocessing.StandardScaler().fit_transform(x)
+    # x = preprocessing.StandardScaler().fit_transform(x)
+    # for col in x:
+    #     x[col] = x[col].div(255)
+
+    # print(x)
 
     return x, y
 
@@ -85,11 +89,11 @@ def main():
 
     # Use only 50% of the dataset for initial hyperparameter tuning
     x_small, x_test, y_small, y_test = train_test_split(
-        x, y, test_size=0.2, random_state=42
+        x, y, test_size=0.1, random_state=42
     )
 
     # Use fewer cross-validation splits
-    cv = StratifiedKFold(n_splits=3, shuffle=True, random_state=42)
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
     svm_model = svm_random_search(x_small, y_small, cv)
     rf_model = random_forest_random_search(x_small, y_small, cv)
@@ -109,3 +113,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # load_and_preprocess_data(data_path)

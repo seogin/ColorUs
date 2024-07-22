@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 
 # Path to your data file
-data_path = "../csv_file/data.csv"
+data_path = "csv_file/data.csv"
 
 
 def load_and_preprocess_data(path):
@@ -14,35 +14,47 @@ def load_and_preprocess_data(path):
     # Handle missing values if any
     data = data.dropna()
 
-    x = data.drop("label", axis=1)
+    # x = data.drop("label", axis=1)
+    x = data.drop(["label"], axis=1)
     y = data["label"]
 
     # Normalize features
-    x = preprocessing.StandardScaler().fit_transform(x)
+    # x = preprocessing.StandardScaler().fit_transform(x)
+    # for col in x:
+    #     x[col] = x[col].div(255)
+
+    # print(x)
 
     return x, y
 
 
 # 25%
-def svm_model(x_train, y_train):
-    model = svm.SVC(kernel="rbf", C=8.4, gamma="scale")
+def svm_model():
+    x, y = load_and_preprocess_data(data_path)
+
+    x_train, x_test, y_train, y_test = train_test_split(
+        x, y, test_size=0.1, random_state=42
+    )
+
+    model = svm.SVC(kernel="linear", C=2)
     model.fit(x_train, y_train)
+
+    y_pred = model.predict(x_test)
+
+    print(accuracy_score(y_test, y_pred))
 
     return model
 
 
 # 30.6%
 def knn_model():
-    data = pd.read_csv("../csv_file/data.csv")
-    x = data.drop("label", axis=1)
-    x = preprocessing.normalize(x)
-    y = data["label"]
+    x, y = load_and_preprocess_data(data_path)
 
     x_train, x_test, y_train, y_test = train_test_split(
         x, y, test_size=0.1, random_state=42
     )
 
-    model = KNeighborsClassifier(n_neighbors=25)
+    model = KNeighborsClassifier(n_neighbors=28)
     model.fit(x_train, y_train)
 
     y_pred = model.predict(x_test)
@@ -97,4 +109,5 @@ def main():
 
 if __name__ == "__main__":
     # main()
+    svm_model()
     knn_model()
