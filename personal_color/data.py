@@ -25,9 +25,19 @@ def get_data():
             [
                 "b1",
                 "s1",
-                "b2",
-                "s2",
-                "label",
+                "v1",
+                # "b2",
+                # "s2",
+                # "v2",
+                # "b3",
+                # "s3",
+                # "v3",
+                # "b4",
+                # "s4",
+                # "v4",
+                "tone",
+                "saturation",
+                "brightness",
             ]
         )
 
@@ -49,10 +59,30 @@ def get_data():
                         # data.append(lab[1] / 128)
                         data.append(lab[2] / 128)
                         data.append(((hsv[1] * 255) - 128) / 255)
-                        # data.append((hsv[2] - 128) / 255)
+                        data.append((hsv[2] - 128) / 255)
                         # print(data)
-                    if len(data) == 4:
-                        data.append(file)
+                    if len(data) == 3:
+                        if file == "fall" or file == "spring":
+                            # data.append(0)  # warm
+                            data.append("warm")
+                        else:
+                            # data.append(1)  # cool
+                            data.append("cool")
+
+                        if file == "fall" or file == "summer":
+                            # data.append(0)  # soft
+                            data.append("soft")
+                        else:
+                            # data.append(1)  # bright
+                            data.append("bright")
+
+                        if file == "fall" or file == "winter":
+                            # data.append(0)  # dark
+                            data.append("dark")
+                        else:
+                            # data.append(1)  # light
+                            data.append("light")
+                        # data.append(file)
                         print(len(data))
                         writer.writerow(data)
                     else:

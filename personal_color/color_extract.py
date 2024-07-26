@@ -13,7 +13,7 @@ class DominantColors:
     COLORS = None
     LABELS = None
 
-    def __init__(self, image, clusters=2):
+    def __init__(self, image, clusters=1):
         self.CLUSTERS = clusters
         img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         self.IMAGE = img.reshape((img.shape[0] * img.shape[1], 3))
@@ -72,6 +72,8 @@ class DominantColors:
 
 def main():
     face = DetectFace("src/fall/1.jpg").get_face()
+    DominantColors(face).plotHistogram()
+    face = DetectFace("src/fall/05_jiho0621.jpg").get_face()
     DominantColors(face).plotHistogram()
 
 
