@@ -9,6 +9,28 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from google_images_download import google_images_download
+
+
+response = google_images_download.googleimagesdownload()
+spr_keywords = ["수지", "로제", "박민영", "임소향", "아이유", "배우 한혜진", "모델 한혜진", "윤아", "아이린", "조보아", "김유정", "유인나", "조이", "제시카", "김세정"]
+smr_keywords = ["손예진", "김고은", "장원영", "강소라", "문소리", "문채연", "김연아", "안유진", "박민영", "정채연", "아린", "나연", "김태리", "다현", "모모"]
+fll_keywords = ["천우희", "이효리", "탕웨이", "하지원", "제니", "하정우", "현아", "고아라", "신세경", "한효주", "박신애", "하연수", "쯔위", "미나", "정연"]
+wnt_keywords = ["서지혜", "채영", "지효", "임시완", "현빈", "서지수", "남궁민", "한가인", "이나영", "전지현", "설현", "이영애", "김혜수", "차승원", "윤두준"]
+
+d = {"fall": fll_keywords, "spring": spr_keywords, "summer": smr_keywords, "winter": wnt_keywords}
+
+for k, v in d.items():
+    for i in v:
+        arguments = {
+            "keywords": i + "기사사진",
+            "limit": 100,
+            "print_urls": True,
+            "format": "jpg",
+            "output_directory": "../../../OneDrive/ColorUs_Project/",
+            "image_directory": k
+        }
+        paths = response.download(arguments)
 
 
 def download_images(image, path, file):
