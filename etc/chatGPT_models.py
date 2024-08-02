@@ -11,7 +11,7 @@ from sklearn.decomposition import PCA
 from scipy.stats import uniform
 
 # Path to your data file
-data_path = "./data.csv"
+data_path = "csv_file/data.csv"
 
 
 def load_and_preprocess_data(path):
@@ -20,29 +20,10 @@ def load_and_preprocess_data(path):
     data = data.dropna()
 
     # x = data.drop("label", axis=1)
-    x = data.drop(["tone", "saturation", "brightness"], axis=1)
-    y = data.drop(["brightness", "b1", "s1", "v1"], axis=1)
-    new_y = []
-    for t, s in zip(y["tone"], y["saturation"]):
-        if t == "cool":
-            if s == "bright":
-                new_y.append('winter')
-            else:
-                new_y.append('summer')
-        else:
-            if s == "bright":
-                new_y.append('spring')
-            else:
-                new_y.append('fall')
+    x = data.drop(["season"], axis=1)
+    y = data["season"]
 
-    # Normalize features
-    # x = preprocessing.StandardScaler().fit_transform(x)
-    # for col in x:
-    #     x[col] = x[col].div(255)
-
-    # print(x)
-
-    return x, new_y
+    return x, y
 
 
 def svm_random_search(x_train, y_train, cv):
