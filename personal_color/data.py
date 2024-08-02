@@ -13,7 +13,7 @@ from colorsys import rgb_to_hsv
 def get_data():
 
     files = []
-    for _, dirname, filenames in walk("src"):
+    for _, dirname, filenames in walk("ab"):
         files.extend(dirname)
         break
     # print(files)
@@ -35,21 +35,19 @@ def get_data():
                 # "b4",
                 # "s4",
                 # "v4",
-                "tone",
-                "saturation",
-                "brightness",
+                "season",
             ]
         )
 
         for file in files:
             images = []
-            for _, dirname, filenames in walk(f"src/{file}"):
+            for _, dirname, filenames in walk(f"ab/{file}"):
                 images.extend(filenames)
                 break
             for image in images:
                 if image == ".DS_Store":
                     continue
-                face = DetectFace((f"src/{file}/{image}")).get_face()
+                face = DetectFace((f"ab/{file}/{image}")).get_face()
                 if len(face) > 0:
                     colors, _ = DominantColors(face).getHistogram()
                     data = []
@@ -62,27 +60,27 @@ def get_data():
                         data.append((hsv[2] - 128) / 255)
                         # print(data)
                     if len(data) == 3:
-                        if file == "fall" or file == "spring":
-                            # data.append(0)  # warm
-                            data.append("warm")
-                        else:
-                            # data.append(1)  # cool
-                            data.append("cool")
+                        # if file == "fall" or file == "spring":
+                        #     # data.append(0)  # warm
+                        #     data.append("warm")
+                        # else:
+                        #     # data.append(1)  # cool
+                        #     data.append("cool")
 
-                        if file == "fall" or file == "summer":
-                            # data.append(0)  # soft
-                            data.append("soft")
-                        else:
-                            # data.append(1)  # bright
-                            data.append("bright")
+                        # if file == "fall" or file == "summer":
+                        #     # data.append(0)  # soft
+                        #     data.append("soft")
+                        # else:
+                        #     # data.append(1)  # bright
+                        #     data.append("bright")
 
-                        if file == "fall" or file == "winter":
-                            # data.append(0)  # dark
-                            data.append("dark")
-                        else:
-                            # data.append(1)  # light
-                            data.append("light")
-                        # data.append(file)
+                        # if file == "fall" or file == "winter":
+                        #     # data.append(0)  # dark
+                        #     data.append("dark")
+                        # else:
+                        #     # data.append(1)  # light
+                        #     data.append("light")
+                        data.append(file)
                         print(len(data))
                         writer.writerow(data)
                     else:
