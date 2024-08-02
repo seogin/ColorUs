@@ -1,0 +1,128 @@
+import pandas as pd
+from sklearn.model_selection import (
+    train_test_split,
+    RandomizedSearchCV,
+    StratifiedKFold,
+)
+from sklearn import svm, preprocessing
+from sklearn.metrics import accuracy_score
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.decomposition import PCA
+from scipy.stats import uniform
+
+# Path to your data file
+data_path = "./data.csv"
+
+
+def load_and_preprocess_data(path):
+    data = pd.read_csv(path)
+    # Handle missing values if any
+    data = data.dropna()
+
+    # x = data.drop("label", axis=1)
+    x = data.drop(["tone", "saturation", "brightness"], axis=1)
+    y = data.drop(["brightness", "b1", "s1", "v1"], axis=1)
+    new_y = []
+    for t, s in zip(y["tone"], y["saturation"]):
+        if t == "cool":
+            if s == "bright":
+                new_y.append('winter')
+            else:
+                new_y.append('summer')
+        else:
+            if s == "bright":
+                new_y.append('spring')
+            else:
+                new_y.append('fall')
+
+    # Normalize features
+    # x = preprocessing.StandardScaler().fit_transform(x)
+    # for col in x:
+    #     x[col] = x[col].div(255)
+
+    # print(x)
+
+    return x, new_y
+
+
+def svm_random_search(x_train, y_train, cv):
+    svc = svm.SVC()
+    parameters = {
+        "kernel": ["linear", "rbf"],
+        "C": uniform(0.1, 10),
+        "gamma": ["scale", "auto"],
+    }
+    model = RandomizedSearchCV(
+        svc,
+        parameters,
+        n_iter=10,
+        cv=cv,
+        scoring="accuracy",
+        n_jobs=-1,
+        random_state=42,
+    )
+    model.fit(x_train, y_train)
+    return model
+
+
+def random_forest_random_search(x_train, y_train, cv):
+    rf = RandomForestClassifier()
+    parameters = {
+        "n_estimators": [50, 100],
+        "max_depth": [None, 10, 20],
+        "min_samples_split": [2, 5],
+        "min_samples_leaf": [1, 2],
+    }
+    model = RandomizedSearchCV(
+        rf, parameters, n_iter=10, cv=cv, scoring="accuracy", n_jobs=-1, random_state=42
+    )
+    model.fit(x_train, y_train)
+    return model
+
+
+def gradient_boosting_random_search(x_train, y_train, cv):
+    gb = GradientBoostingClassifier()
+    parameters = {
+        "n_estimators": [50, 100],
+        "learning_rate": uniform(0.01, 0.2),
+        "max_depth": [3, 4],
+        "min_samples_split": [2, 5],
+        "min_samples_leaf": [1, 2],
+    }
+    model = RandomizedSearchCV(
+        gb, parameters, n_iter=10, cv=cv, scoring="accuracy", n_jobs=-1, random_state=42
+    )
+    model.fit(x_train, y_train)
+    return model
+
+
+def main():
+    x, y = load_and_preprocess_data(data_path)
+
+    # Use only 50% of the dataset for initial hyperparameter tuning
+    x_small, x_test, y_small, y_test = train_test_split(
+        x, y, test_size=0.1, random_state=42
+    )
+
+    # Use fewer cross-validation splits
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+    svm_model = svm_random_search(x_small, y_small, cv)
+    rf_model = random_forest_random_search(x_small, y_small, cv)
+    gb_model = gradient_boosting_random_search(x_small, y_small, cv)
+
+    models = {
+        "SVM": svm_model,
+        "Random Forest": rf_model,
+        "Gradient Boosting": gb_model,
+    }
+
+    for name, model in models.items():
+        y_pred = model.predict(x_test)
+        print(f"{name} Best Parameters: {model.best_params_}")
+        print(f"{name} Accuracy: {accuracy_score(y_test, y_pred)}")
+
+
+if __name__ == "__main__":
+    main()
+    # load_and_preprocess_data(data_path)
