@@ -8,7 +8,7 @@ class DetectFace:
     def __init__(self, image):
         self.detector = dlib.get_frontal_face_detector()
         self.predictor = dlib.shape_predictor(
-            "personal_color/shape_predictor_68_face_landmarks.dat"
+            "shape_predictor_68_face_landmarks.dat"
         )
 
         self.img = cv2.imread(image)

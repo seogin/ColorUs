@@ -7,7 +7,7 @@ import pickle
 
 
 def main():
-    path = "test"
+    path = "../test"
 
     files = []
     for _, dirname, filenames in walk(path):
@@ -35,7 +35,7 @@ def main():
                     data.append((hsv[2] - 128) / 255)
 
                 if len(data) == 3:
-                    pickle_in = open("personalColor.pickle", "rb")
+                    pickle_in = open("../personalColor.pickle", "rb")
                     model = pickle.load(pickle_in)
                     predict = model.predict([data])
                     print(f"Actual: {file}      Prediction: {predict}")
