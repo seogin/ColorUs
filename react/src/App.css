@@ -129,15 +129,31 @@ body {
 }
 
 .image-placeholder {
-  background-color: #ffffff;
-  border-radius: 50%;
-  border: 10px solid #8bc34a;
+  --angle: 0deg;
   width: 300px;
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  border: 20px solid transparent;
+  background-image: linear-gradient(white, white), conic-gradient(from var(--angle), #F88379, #FFD59A, #9ACD32, #00FFFF, #E6E6FA, #F1B2E1, #87CEEB, #98FF98, #ff7518, #4e312d, #FFD700, #7F00FF, #800020, #FF00FF, #50C878, black, #F88379);
+  background-clip: content-box, border-box;
+  background-origin: border-box;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: image-placeholder-border-animation 1s linear infinite;
+}
+
+@keyframes image-placeholder-border-animation {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .image-placeholder span {
