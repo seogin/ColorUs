@@ -5,8 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2effd;
-  /* background-color: black; */
+  background: linear-gradient(to bottom, #353839 65%, #f2effd);
 }
 
 .app-container {
@@ -22,52 +21,19 @@ body {
 .app-header {
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
-
-/* .logo {
-  font-size: 24px;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ffcccb, #f3e5f5, #bbdefb);
-  -webkit-background-clip: text;
-  animation:logoAnimation 4s infinite;
-  animation-name: logoAnimation;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  -webkit-text-fill-color: transparent;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-@keyframes logoAnimation {
-  from {
-      background: linear-gradient(90deg, #ffcccb, #f3e5f5, #bbdefb);
-      background-color: red;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  
-  to {
-      background: linear-gradient(90deg, #251f5d, #0ceb74, #e95505);
-      background-color: blue;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-} */
 
 .logo {
   font-weight: bold;
   height: 300px;
   width: 300px;
-  font-size: 30px;
+  font-size: 50px;
   background: linear-gradient(90deg, #ffcccb, #f3e5f5, #bbdefb, #251f5d, #0ceb74, #e95505);
   background-size: 200% 200%;
 
-  /* -webkit-background-clip: text; */
-  /* -webkit-animation: Animation 5s ease infinite; */
-  /* -moz-animation: Animation 5s ease infinite; */
   animation: Animation 8s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -130,18 +96,18 @@ body {
 
 .image-placeholder {
   --angle: 0deg;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 20px solid transparent;
-  background-image: linear-gradient(white, white), conic-gradient(from var(--angle), #F88379, #FFD59A, #9ACD32, #00FFFF, #E6E6FA, #F1B2E1, #87CEEB, #98FF98, #ff7518, #4e312d, #FFD700, #7F00FF, #800020, #FF00FF, #50C878, black, #F88379);
+  border: 70px solid transparent;
+  background-image: linear-gradient(#f2effd, #f2effd), conic-gradient(from var(--angle), red, orange, yellow, green, blue, navy, purple, red);
   background-clip: content-box, border-box;
   background-origin: border-box;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: image-placeholder-border-animation 1s linear infinite;
+  animation: image-placeholder-border-animation 30s linear infinite;
 }
 
 @keyframes image-placeholder-border-animation {
