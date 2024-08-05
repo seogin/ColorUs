@@ -6,6 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #f2effd;
+  /* background-color: black; */
 }
 
 .app-container {
@@ -25,14 +26,99 @@ body {
   padding: 20px;
 }
 
-.logo {
+/* .logo {
   font-size: 24px;
   font-weight: bold;
   background: linear-gradient(90deg, #ffcccb, #f3e5f5, #bbdefb);
   -webkit-background-clip: text;
+  animation:logoAnimation 4s infinite;
+  animation-name: logoAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   -webkit-text-fill-color: transparent;
   padding: 10px;
   border-radius: 8px;
+}
+
+@keyframes logoAnimation {
+  from {
+      background: linear-gradient(90deg, #ffcccb, #f3e5f5, #bbdefb);
+      background-color: red;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+  to {
+      background: linear-gradient(90deg, #251f5d, #0ceb74, #e95505);
+      background-color: blue;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+} */
+
+.logo {
+  font-weight: bold;
+  height: 300px;
+  width: 300px;
+  font-size: 30px;
+  background: linear-gradient(90deg, #ffcccb, #f3e5f5, #bbdefb, #251f5d, #0ceb74, #e95505);
+  background-size: 200% 200%;
+
+  /* -webkit-background-clip: text; */
+  /* -webkit-animation: Animation 5s ease infinite; */
+  /* -moz-animation: Animation 5s ease infinite; */
+  animation: Animation 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@-webkit-keyframes Animation {
+  0% {
+    background-position: 10% 0%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  50% {
+    background-position: 91% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  100% {
+    background-position: 10% 0%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@-moz-keyframes Animation {
+  0% {
+    background-position: 10% 0%
+  }
+
+  50% {
+    background-position: 91% 100%
+  }
+
+  100% {
+    background-position: 10% 0%
+  }
+}
+
+@keyframes Animation {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
 
 .main-content {
