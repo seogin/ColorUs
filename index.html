@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Test personal color</title>
+    </head>
+    <body>
+        <div id="output">Output</div>
+        <button onclick="getPersonalColor()">Run</button>
+
+        <script>
+            function getPersonalColor() {
+                const url =
+                    "https://www.instyle.com/thmb/4kl8LIbmTL4eFZNUkYtWX2HY3Nc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/071122-buccal-facial-lead-2000-12ca4fa1d38841239d34d467b5f0c05f.jpg";
+
+                fetch(`http://127.0.0.1:5000/analyze?url=${url}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        document.getElementById(
+                            "output"
+                        ).innerHTML = `${data.result}`;
+                    })
+                    .catch((err) => console.error("Error", err));
+            }
+        </script>
+    </body>
+</html>

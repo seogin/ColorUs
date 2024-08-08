@@ -3,3 +3,5 @@ opencv-python
 imutils
 scikit-learn
 pandas
+flask
+flask-cors

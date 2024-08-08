@@ -2,16 +2,26 @@ from imutils import face_utils
 import numpy as np
 import dlib
 import cv2
+import urllib
+
+
+def url_to_image(url):
+    resp = urllib.request.urlopen(url)
+    image = np.asarray(bytearray(resp.read()), dtype="uint8")
+    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+
+    return image
 
 
 class DetectFace:
     def __init__(self, image):
         self.detector = dlib.get_frontal_face_detector()
-        self.predictor = dlib.shape_predictor(
-            "shape_predictor_68_face_landmarks.dat"
-        )
+        self.predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
-        self.img = cv2.imread(image)
+        # self.img = cv2.imread(image)
+        self.img = url_to_image(image)
+        # cv2.imshow("image", self.img)
+        # cv2.waitKey(0)
 
         self.right_eyebrow = []
         self.left_eyebrow = []
@@ -121,8 +131,13 @@ class DetectFace:
 
 
 def main():
-    DetectFace("src/fall/1.jpg")
+    DetectFace(
+        "https://www.instyle.com/thmb/4kl8LIbmTL4eFZNUkYtWX2HY3Nc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/071122-buccal-facial-lead-2000-12ca4fa1d38841239d34d467b5f0c05f.jpg"
+    )
     # DetectFace("src/fall/05_jiho0621.jpg")
+    # image = url_to_image("https://picsum.photos/200/300")
+    # cv2.imshow("image", image)
+    # cv2.waitKey(0)
 
 
 if __name__ == "__main__":
