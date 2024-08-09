@@ -47,40 +47,6 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-@-webkit-keyframes Animation {
-    0% {
-        background-position: 10% 0%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    50% {
-        background-position: 91% 100%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    100% {
-        background-position: 10% 0%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-}
-
-@-moz-keyframes Animation {
-    0% {
-        background-position: 10% 0%;
-    }
-
-    50% {
-        background-position: 91% 100%;
-    }
-
-    100% {
-        background-position: 10% 0%;
-    }
-}
-
 @keyframes Animation {
     0% {
         background-position: 0% 50%;
@@ -130,28 +96,30 @@ body {
 }
 
 .fast {
-  --angle: 0deg;
-  width: 400px;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 70px solid transparent;
-  background-image: linear-gradient(#f2effd, #f2effd),
-    conic-gradient(from var(--angle),
-      red,
-      orange,
-      yellow,
-      green,
-      blue,
-      navy,
-      purple,
-      red);
-  background-clip: content-box, border-box;
-  background-origin: border-box;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: image-placeholder-border-animation 0.3s linear infinite;
+    --angle: 0deg;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 70px solid transparent;
+    background-image: linear-gradient(#f2effd, #f2effd),
+        conic-gradient(
+            from var(--angle),
+            red,
+            orange,
+            yellow,
+            green,
+            blue,
+            navy,
+            purple,
+            red
+        );
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: image-placeholder-border-animation 0.3s linear infinite;
 }
 
 .fall {
@@ -178,7 +146,8 @@ body {
     background-clip: content-box, border-box;
     background-origin: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: image-placeholder-border-animation 30s linear infinite;
+    /* animation: image-placeholder-border-animation 30s linear infinite; */
+    animation: image-slow-down 2s ease-out;
 }
 
 .summer {
@@ -205,7 +174,8 @@ body {
     background-clip: content-box, border-box;
     background-origin: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: image-placeholder-border-animation 30s linear infinite;
+    /* animation: image-placeholder-border-animation 30s linear infinite; */
+    animation: image-slow-down 2s ease-out;
 }
 
 .spring {
@@ -232,7 +202,8 @@ body {
     background-clip: content-box, border-box;
     background-origin: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: image-placeholder-border-animation 30s linear infinite;
+    /* animation: image-placeholder-border-animation 30s linear infinite; */
+    animation: image-slow-down 2s ease-out;
 }
 
 .winter {
@@ -259,11 +230,22 @@ body {
     background-clip: content-box, border-box;
     background-origin: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: image-placeholder-border-animation 30s linear infinite;
+    /* animation: image-placeholder-border-animation 30s linear infinite; */
+    animation: image-slow-down 2s ease-out;
 }
 
 @keyframes image-placeholder-border-animation {
     to {
+        --angle: 360deg;
+    }
+}
+
+@keyframes image-slow-down {
+    0% {
+        --angle: -890deg;
+    }
+
+    100% {
         --angle: 360deg;
     }
 }
