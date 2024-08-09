@@ -20,6 +20,8 @@ function App() {
     const formData = new FormData();
     formData.append('file', file);
 
+    circle.classList.add("fast")
+
     fetch('http://127.0.0.1:5000/analyze', {
       method: 'POST',
       body: formData,
@@ -27,6 +29,15 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        console.log(data.result);
+        if (
+          ["winter", "fall", "summer", "spring"].includes(data.result)
+        ) {
+          circle.classList.add(data.result);
+        } else {
+          console.log(data.result);
+        }
+        circle.classList.remove("fast");
       })
       .catch((err) => console.error("Error", err));
   }
@@ -38,7 +49,7 @@ function App() {
           <div className="logo">ColorUs</div>
         </header>
         <main className="main-content">
-          <div className="image-placeholder">
+          <div className="image-placeholder" id="circle">
             <span
               id="label"
               className="flex items-center justify-center w-full h-full rounded-xl p-2"

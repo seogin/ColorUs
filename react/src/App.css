@@ -129,6 +129,31 @@ body {
     animation: image-placeholder-border-animation 30s linear infinite;
 }
 
+.fast {
+  --angle: 0deg;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 70px solid transparent;
+  background-image: linear-gradient(#f2effd, #f2effd),
+    conic-gradient(from var(--angle),
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      navy,
+      purple,
+      red);
+  background-clip: content-box, border-box;
+  background-origin: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: image-placeholder-border-animation 0.3s linear infinite;
+}
+
 .fall {
     --angle: 0deg;
     width: 400px;
