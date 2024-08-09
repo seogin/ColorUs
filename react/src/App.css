@@ -37,7 +37,7 @@ body {
         90deg,
         #ffbcb9,
         #f4aaff,
-        #77DD77,
+        #77dd77,
         #251f5d,
         #0ceb74,
         #8a05e9
@@ -79,7 +79,7 @@ body {
     align-items: center;
     border-radius: 50%;
     border: 70px solid transparent;
-    background-image: linear-gradient(#f2effd, #f2effd),
+    background-image: linear-gradient(to bottom, #f0defd, #fddfdf, #fcf7de),
         conic-gradient(
             from var(--angle),
             red,
