@@ -1,128 +1,255 @@
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to bottom, #353839 65%, #f2effd);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #353839 65%, #f2effd);
 }
 
 .app-container {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .app-header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .logo {
-  font-weight: bold;
-  height: 300px;
-  width: 300px;
-  font-size: 50px;
-  background: linear-gradient(90deg, #ffcccb, #f3e5f5, #bbdefb, #251f5d, #0ceb74, #e95505);
-  background-size: 200% 200%;
+    font-weight: bold;
+    height: 300px;
+    width: 300px;
+    font-size: 50px;
+    background: linear-gradient(
+        90deg,
+        #ffcccb,
+        #f3e5f5,
+        #bbdefb,
+        #251f5d,
+        #0ceb74,
+        #e95505
+    );
+    background-size: 200% 200%;
 
-  animation: Animation 8s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    animation: Animation 8s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @-webkit-keyframes Animation {
-  0% {
-    background-position: 10% 0%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    0% {
+        background-position: 10% 0%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-  50% {
-    background-position: 91% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    50% {
+        background-position: 91% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-  100% {
-    background-position: 10% 0%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    100% {
+        background-position: 10% 0%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 @-moz-keyframes Animation {
-  0% {
-    background-position: 10% 0%
-  }
+    0% {
+        background-position: 10% 0%;
+    }
 
-  50% {
-    background-position: 91% 100%
-  }
+    50% {
+        background-position: 91% 100%;
+    }
 
-  100% {
-    background-position: 10% 0%
-  }
+    100% {
+        background-position: 10% 0%;
+    }
 }
 
 @keyframes Animation {
-  0% {
-    background-position: 0% 50%
-  }
+    0% {
+        background-position: 0% 50%;
+    }
 
-  50% {
-    background-position: 100% 50%
-  }
+    50% {
+        background-position: 100% 50%;
+    }
 
-  100% {
-    background-position: 0% 50%
-  }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .image-placeholder {
-  --angle: 0deg;
-  width: 400px;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 70px solid transparent;
-  background-image: linear-gradient(#f2effd, #f2effd), conic-gradient(from var(--angle), red, orange, yellow, green, blue, navy, purple, red);
-  background-clip: content-box, border-box;
-  background-origin: border-box;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: image-placeholder-border-animation 30s linear infinite;
+    --angle: 0deg;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 70px solid transparent;
+    background-image: linear-gradient(#f2effd, #f2effd),
+        conic-gradient(
+            from var(--angle),
+            red,
+            orange,
+            yellow,
+            green,
+            blue,
+            navy,
+            purple,
+            red
+        );
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: image-placeholder-border-animation 30s linear infinite;
+}
+
+.fall {
+    --angle: 0deg;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 70px solid transparent;
+    background-image: linear-gradient(#f2effd, #f2effd),
+        conic-gradient(
+            from var(--angle),
+            rgb(168, 66, 44),
+            rgb(204, 99, 64),
+            rgb(250, 188, 20),
+            rgb(151, 173, 60),
+            rgb(33, 151, 165),
+            rgb(60, 100, 120),
+            rgb(137, 83, 111),
+            rgb(168, 66, 44)
+        );
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: image-placeholder-border-animation 30s linear infinite;
+}
+
+.summer {
+    --angle: 0deg;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 70px solid transparent;
+    background-image: linear-gradient(#f2effd, #f2effd),
+        conic-gradient(
+            from var(--angle),
+            rgb(218, 50, 82),
+            rgb(231, 128, 162),
+            rgb(222, 190, 108),
+            rgb(98, 180, 165),
+            rgb(37, 153, 198),
+            rgb(78, 84, 161),
+            rgb(103, 90, 178),
+            rgb(218, 50, 82)
+        );
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: image-placeholder-border-animation 30s linear infinite;
+}
+
+.spring {
+    --angle: 0deg;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 70px solid transparent;
+    background-image: linear-gradient(#f2effd, #f2effd),
+        conic-gradient(
+            from var(--angle),
+            rgb(225, 74, 84),
+            rgb(249, 172, 131),
+            rgb(255, 242, 0),
+            rgb(215, 225, 80),
+            rgb(78, 198, 205),
+            rgb(0, 92, 144),
+            rgb(133, 39, 146),
+            rgb(225, 74, 84)
+        );
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: image-placeholder-border-animation 30s linear infinite;
+}
+
+.winter {
+    --angle: 0deg;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 70px solid transparent;
+    background-image: linear-gradient(#f2effd, #f2effd),
+        conic-gradient(
+            from var(--angle),
+            rgb(126, 1, 36),
+            rgb(243, 185, 77),
+            rgb(68, 96, 56),
+            rgb(25, 62, 160),
+            rgb(69, 51, 88),
+            rgb(0, 0, 0),
+            rgb(128, 128, 128),
+            rgb(126, 1, 36)
+        );
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: image-placeholder-border-animation 30s linear infinite;
 }
 
 @keyframes image-placeholder-border-animation {
-  to {
-    --angle: 360deg;
-  }
+    to {
+        --angle: 360deg;
+    }
 }
 
 @property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
 
 .image-placeholder span {
-  font-size: 18px;
-  color: #555;
+    font-size: 18px;
+    color: #555;
 }
