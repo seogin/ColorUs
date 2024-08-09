@@ -5,7 +5,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #353839 65%, #f2effd);
+    background-color: #f2effd;
+    /* background: linear-gradient(to bottom, #353839 65%, #f2effd); */
 }
 
 .app-container {
@@ -33,9 +34,9 @@ body {
     font-size: 50px;
     background: linear-gradient(
         90deg,
-        #ffcccb,
-        #f3e5f5,
-        #bbdefb,
+        #f8bcbb,
+        #f6d0fc,
+        #aed7f9,
         #251f5d,
         #0ceb74,
         #e95505
