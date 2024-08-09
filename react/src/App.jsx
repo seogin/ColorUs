@@ -16,6 +16,7 @@ function App() {
             // Process the uploaded file here
             console.log("File uploaded:", file);
             label.classList.add("hidden");
+            startButton.classList.remove("invisible")
             image.classList.remove("hidden");
             setFile(URL.createObjectURL(file));
         }
@@ -52,6 +53,9 @@ function App() {
                         />
                     </div>
                 </main>
+                <button id="startButton" className="invisible m-8 bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded text-2xl">
+                  Start!
+                </button>
             </div>
         </>
     );
