@@ -6,6 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #f2effd;
+    background-image: url("/background_image.png");
     /* background: linear-gradient(to bottom, #353839 65%, #f2effd); */
 }
 
@@ -34,12 +35,12 @@ body {
     font-size: 50px;
     background: linear-gradient(
         90deg,
-        #f8bcbb,
-        #f6d0fc,
-        #aed7f9,
+        #ffbcb9,
+        #f4aaff,
+        #77DD77,
         #251f5d,
         #0ceb74,
-        #e95505
+        #8a05e9
     );
     background-size: 200% 200%;
 
