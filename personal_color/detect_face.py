@@ -3,13 +3,20 @@ import numpy as np
 import dlib
 import cv2
 import urllib
+import os
 
 
-def url_to_image(url):
-    resp = urllib.request.urlopen(url)
-    image = np.asarray(bytearray(resp.read()), dtype="uint8")
-    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-
+def url_to_image(image_path_or_url):
+    # Check if the input is a URL or a file path
+    if os.path.isfile(image_path_or_url):
+        # If it's a file path, read the image using OpenCV
+        image = cv2.imread(image_path_or_url)
+    else:
+        # If it's a URL, read the image from the URL
+        resp = urllib.request.urlopen(image_path_or_url)
+        image = np.asarray(bytearray(resp.read()), dtype="uint8")
+        image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    
     return image
 
 
