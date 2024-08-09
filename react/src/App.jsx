@@ -48,6 +48,7 @@ function App() {
                             id="image"
                             className="hidden w-full h-full rounded-full"
                             src={file}
+                            onClick={handleSpanClick}
                         />
                     </div>
                 </main>
