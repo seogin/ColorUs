@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
     const [file, setFile] = useState(null);
     const [showModal, setShowModal] = useState(false); // State to manage modal visibility
+    const [season, setSeason] = useState("");
     const fileInputRef = useRef(null);
 
     const handleSpanClick = () => {
@@ -43,6 +44,7 @@ function App() {
                     ["winter", "fall", "summer", "spring"].includes(data.result)
                 ) {
                     circle.classList.add(data.result);
+                    setSeason(data.result);
                     startButton.classList.add("hidden");
                     detailButton.classList.remove("hidden");
                 } else {
@@ -63,6 +65,10 @@ function App() {
             <div className="app-container">
                 <header className="app-header">
                     <div className="logo">ColorUs</div>
+                    <div className="justify-center items-center text-center text-5xl">
+                        {season.slice(0, 1).toUpperCase() +
+                            season.slice(1).toLowerCase()}
+                    </div>
                 </header>
                 <main className="main-content">
                     <div className="image-placeholder" id="circle">
