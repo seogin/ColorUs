@@ -65,7 +65,7 @@ function App() {
             <div className="app-container">
                 <header className="app-header">
                     <div className="logo">ColorUs</div>
-                    <div className="justify-center items-center text-center text-5xl">
+                    <div className="justify-center items-center text-center text-5xl mb-10">
                         {season.slice(0, 1).toUpperCase() +
                             season.slice(1).toLowerCase()}
                     </div>
