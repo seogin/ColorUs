@@ -3,14 +3,14 @@ import "./App.css";
 
 // Import the season detail components
 import SpringDetails from "../components/spring";
-import SummerDetails from "../components/summer";
 import FallDetails from "../components/fall";
+import SummerDetails from "../components/summer";
 import WinterDetails from "../components/winter";
 
 function App() {
   const [file, setFile] = useState(null);
-  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
-  const [showSeasonModal, setShowSeasonModal] = useState(false); // State to manage season detail modal visibility
+  const [showModal, setShowModal] = useState(false); // State to manage the modal visibility for no face detected
+  const [showSeasonModal, setShowSeasonModal] = useState(false); // State to manage the season details modal
   const [season, setSeason] = useState("");
   const fileInputRef = useRef(null);
 
@@ -67,9 +67,9 @@ function App() {
     setShowModal(false); // Hide the modal
   };
 
-  const cloaseSeasonModal = () => {
-    setShowSeasonModal(false);
-  }
+  const closeSeasonModal = () => {
+    setShowSeasonModal(false); // Hide the season details modal
+  };
 
   const renderSeasonDetails = () => {
     switch (season) {
@@ -135,7 +135,7 @@ function App() {
         </button>
       </div>
 
-      {/* Modal */}
+      {/* No face detected modal */}
       {showModal && (
         <div
           id="popup_modal"
@@ -196,8 +196,6 @@ function App() {
           </div>
         </div>
       )}
-
-      {season && <FallDetails></FallDetails>}
 
       {/* Season details modal */}
       {showSeasonModal && (
