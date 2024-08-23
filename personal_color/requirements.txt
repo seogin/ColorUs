@@ -1,5 +1,4 @@
-cmake
-dlib
+dlib-bin
 opencv-python
 imutils
 scikit-learn
