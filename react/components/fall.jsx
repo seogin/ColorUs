@@ -22,10 +22,10 @@ const FallDetails = () => (
         <p>
             Best Colors:
             <ul>
-                <li>Olive Green (#808000) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#808000' }}></span></li>
-                <li>Rust (#b7410e) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#b7410e' }}></span></li>
-                <li>Burnt Orange (#cc5500) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#cc5500' }}></span></li>
-                <li>Warm Brown (#ae561c) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ae561c' }}></span></li>
+                <li>Olive Green <span style={{ display: 'none' }}>(#808000)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#808000' }}></span></li>
+                <li>Rust <span style={{ display: 'none' }}>(#b7410e)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#b7410e' }}></span></li>
+                <li>Burnt Orange <span style={{ display: 'none' }}>(#cc5500)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#cc5500' }}></span></li>
+                <li>Warm Brown <span style={{ display: 'none' }}>(#ae561c)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ae561c' }}></span></li>
             </ul>
         </p>
     </>

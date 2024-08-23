@@ -22,10 +22,10 @@ const SummerDetails = () => (
         <p>
             Best Colors:
             <ul>
-                <li>Powder Blue (#b6d0e2) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#b6d0e2' }}></span></li>
-                <li>Dusty Rose (#dcae96) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#dcae96' }}></span></li>
-                <li>Soft Pink (#fdb0c0) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#fdb0c0' }}></span></li>
-                <li>Cool Lavender (#e6e6fa) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#e6e6fa' }}></span></li>
+                <li>Powder Blue <span style={{ display: 'none' }}>(#b6d0e2)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#b6d0e2' }}></span></li>
+                <li>Dusty Rose <span style={{ display: 'none' }}>(#dcae96)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#dcae96' }}></span></li>
+                <li>Soft Pink <span style={{ display: 'none' }}>(#fdb0c0)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#fdb0c0' }}></span></li>
+                <li>Cool Lavender <span style={{ display: 'none' }}>(#e6e6fa)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#e6e6fa' }}></span></li>
             </ul>
         </p>
     </>

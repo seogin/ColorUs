@@ -24,10 +24,10 @@ const SpringDetails = () => (
             Best Colors:
             <ul>
                 <li>Warm Yellow (#ffb0a0) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ffb0a0' }}></span></li>
-                <li>Coral (#ff7750) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ff7750' }}></span></li>
-                <li>Peach (#ffe5b4) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ffe5b4' }}></span></li>
-                <li>Mint Green (#99ff98) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#99ff98' }}></span></li>
-                <li>Clear Aqua (#c4e9e1) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#c4e9e1' }}></span></li>
+                <li>Coral <span style={{ display: 'none' }}>(#ff7750)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ff7750' }}></span></li>
+                <li>Peach <span style={{ display: 'none' }}>(#ffe5b4)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ffe5b4' }}></span></li>
+                <li>Mint Green <span style={{ display: 'none' }}>(#99ff98)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#99ff98' }}></span></li>
+                <li>Clear Aqua <span style={{ display: 'none' }}>(#c4e9e1)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#c4e9e1' }}></span></li>
             </ul>
         </p>
     </>

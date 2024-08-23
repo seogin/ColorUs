@@ -22,10 +22,10 @@ const WinterDetails = () => (
         <p>
             Best Colors:
             <ul>
-                <li>True Red (#8f1d21) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#8f1d21' }}></span></li>
-                <li>Black (#000000) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#000000' }}></span></li>
-                <li>Cobalt Blue (#0047ab) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#0047ab' }}></span></li>
-                <li>Bright Magenta (#ff08e8) <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ff08e8' }}></span></li>
+                <li>True Red <span style={{ display: 'none' }}>(#8f1d21)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#8f1d21' }}></span></li>
+                <li>Black <span style={{ display: 'none' }}>(#000000)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#000000' }}></span></li>
+                <li>Cobalt Blue <span style={{ display: 'none' }}>(#0047ab)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#0047ab' }}></span></li>
+                <li>Bright Magenta <span style={{ display: 'none' }}>(#ff08e8)</span> <span style={{ display: 'inline-block', width: '16px', height: '16px', backgroundColor: '#ff08e8' }}></span></li>
             </ul>
         </p>
     </>
