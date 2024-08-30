@@ -1,15 +1,8 @@
 # ColorUs
 
-## Installation
-
-Prerequisite: Install Homebrew
-
-```
-brew install cmake
-pip install -r requirements.txt
-```
-
 ## 📖 Project Description
+
+A mobile-first web app that uses image classification AI model to classify an image of a person into 4 categories or personal colour based on the person's skin tone.
 
 ## 💞 Names of Contributors
 
@@ -51,18 +44,14 @@ Here's how to get started once you've cloned the project:
 -   npm i: Install all dependencies
 -   Run React using `npm run dev` on different terminal
 
-### Usage
-
--   Upload a
-
 ## 🪲 Known Bugs and Limitations
 
--   Layout optimized for iPhone 14 Pro Max environment
+-   Layout optimized for iPhone 14 Pro Max environment, but have not tested on an actual phone.
 
 ## 🔮 Features for Future
 
--   Integration with real-time criminal data APIs to provide up-to-date and localized crime information.
--   AI-driven recommendations for protection services tailored to specific crime patterns and user location data.
+-   Integrate usage of built-in camera to run the program.
+-   Deployment.
 
 ## 📂 Contents of Project Folder
 
@@ -70,9 +59,9 @@ Here's how to get started once you've cloned the project:
 
 ```
 ├── .gitignore          # Git ignore file
-├── index.html
+├── index.html          # Test for frontend
 ├── main.py
-├── personalColor.pickle    # Trained model
+├── personalColor.pickle    # Trained model (More accurate)
 ├── personalColor2.pickle   # Trained model
 └── README.md           # Project overview, instructions, and documentation
 ```
@@ -80,11 +69,11 @@ Here's how to get started once you've cloned the project:
 ### Subfolders and files:
 
 ```
-├── csv_file    # Converted image data
+├── csv_file            # Extracted data
 │   ├── data.py
 │   ├── data1.csv
 │   └── data2.csv
-├── etc
+├── etc                 # Unused, but important files
 │   ├── chatGPT_models.py
 │   ├── color_extract_new.py
 │   ├── detect_face_new.py
@@ -92,7 +81,7 @@ Here's how to get started once you've cloned the project:
 │   ├── personal.py
 │   ├── scrape_images.py
 │   └── tone_analysis.py
-├── personal_color
+├── personal_color      # Machine learning algorithm
 │   ├── app.py
 │   ├── color_converter.py
 │   ├── color_extract.py
@@ -101,7 +90,7 @@ Here's how to get started once you've cloned the project:
 │   ├── personal_color.py
 │   ├── requirements.txt
 │   └── shape_predictor_68_face_landmarks.dat
-├── react
+├── react               # Frontend
 │   ├── components
 │   │   ├── fall.jsx
 │   │   ├── spring.jsx
